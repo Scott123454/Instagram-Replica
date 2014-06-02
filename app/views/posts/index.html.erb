@@ -1,0 +1,46 @@
+<% if @all_posts.any? %>
+	
+	<% @all_posts.each do |post| %>
+	<div class='post'>
+		<%= image_tag post.picture.url, class: 'uploaded-pic' %><br/>
+		<%= post.description %><br/>
+			<ul>
+				<% post.comments.each do |comment| %>
+					<li> <%= comment.comment %> </li>
+				<% end %>
+			</ul>
+			<% if user_signed_in? %>
+				<%= link_to "Add comment", new_post_comment_path(post) %>
+			<% end %>
+			<% if post.user == current_user %>
+				<%= link_to "Delete post", post_path(post), method: :delete %>
+			<% end %>
+	<% end %>
+	<% else %>
+
+		<Br/><br/>
+			No posts have been made
+		<Br/><br/>
+
+<% end %>
+	
+	<h4>0 comments</h4>
+
+
+<%= form_for @post, html: { multipart: true } do |f| %>
+	
+	<%= f.label :picture %>
+	<%= f.file_field :picture %>
+
+	<%= f.label :description %> 
+	<%= f.text_area :description %>
+
+	<%= f.label :tag_names, 'Tags' %>
+	<%= f.text_field :tag_names %>
+	
+	<%= f.button "Upload", action: "create" %>
+
+<% end %>
+
+</div>
+
