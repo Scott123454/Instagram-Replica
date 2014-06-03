@@ -5,6 +5,11 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 
+Capybara.server do |app, port|
+  require 'rack/handler/thin'
+  Rack::Handler::Thin.run(app, :Port => port)
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -15,6 +20,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 include Warden::Test::Helpers
 Warden.test_mode!
+AWS.stub!
 
 RSpec.configure do |config|
   # ## Mock Framework

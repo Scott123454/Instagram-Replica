@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
  	has_many :comments	
  	belongs_to :user
  	has_and_belongs_to_many :tags
+ 	has_many :likes
 
  	def tag_names
  		''
@@ -21,7 +22,9 @@ class Post < ActiveRecord::Base
  		return if tag_names.blank?
  		tag_names.split(', ').each do |tag_name|
  		hash_name= '#' + tag_name.delete('#')
-		self.tags.create(name: hash_name)
+		# tags.create(name: hash_name)
+		tag = Tag.find_or_create_by(name: hash_name)
+		self.tags << tag
 		end
  		# self.tags << tag_names
  	end
