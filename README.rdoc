@@ -1,4 +1,4 @@
-###Instagram replica
+Instagram replica
 
 This project is a Ruby on Rails replica of Instagram utilising:
 
@@ -12,7 +12,7 @@ jQuery,
 Websockets,
 Rspec
 
-##Features
+Features
 
 -Visitors to the homepage see small thumbnails of previously uploaded images
 
