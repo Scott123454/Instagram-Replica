@@ -1,9 +1,20 @@
-Ruby on Rails replica of Instagram utilising:
+This project is a Ruby on Rails replica of Instagram utilising:
 
-Ruby
-Javascript
+Ruby on Rails
+SQLite
+Devise
+Paperclip, for image management
+Stripe API
+Twitter Bootstrap
 jQuery
-Bootstrap
-Stripe
+Websockets
 Rspec
+
+Features
+
+Visitors to the homepage see small thumbnails of previously uploaded images
+User management using Devise
+Signed in users can upload new images, including a description and tags
+Captions can be added to the pictures
+Users can 'order prints' of images they like through the Stripe API
 
