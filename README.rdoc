@@ -14,9 +14,13 @@ Rspec
 
 **Features**
 
-Visitors to the homepage see small thumbnails of previously uploaded images
-User management using Devise
-Signed in users can upload new images, including a description and tags
-Captions can be added to the pictures
-Users can 'order prints' of images they like through the Stripe API
+-Visitors to the homepage see small thumbnails of previously uploaded images
+
+-User management using Devise
+
+-Signed in users can upload new images, including a description and tags
+
+-Captions can be added to the pictures
+
+-Users can 'order prints' of images they like through the Stripe API
 
