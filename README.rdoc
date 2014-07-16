@@ -1,4 +1,4 @@
-Instagram replica H1
+**Instagram replica**
 
 This project is a Ruby on Rails replica of Instagram utilising:
 
