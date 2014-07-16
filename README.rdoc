@@ -2,8 +2,7 @@ Instagram replica
 
 This project is a Ruby on Rails replica of Instagram utilising:
 
-Ruby on Rails,
-SQLite,
+
 Devise,
 Paperclip for image management,
 Stripe API,
