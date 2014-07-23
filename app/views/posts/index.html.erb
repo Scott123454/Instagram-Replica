@@ -1,0 +1,55 @@
+<div class='container' >
+
+	<% if @all_posts.any? %>
+		<div class='row'>
+		   	<div class='col-md-4'>
+			  	<% @all_posts.each do |post| %>
+				  	<div class='post' data-id='<%= post.id %>' >
+				  		<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %><br/>
+				  		<%= post.description %><br/>
+				  		<p>
+				  		<% post.tags.each do |tag| %>
+				  			<%= link_to tag.name, '#' %>
+				  		<%end%>
+				  		</p>
+			  			<ul>
+			  				<% post.comments.each do |comment| %>
+			  					<li> <%= comment.comment %> </li>
+			  				<% end %>
+			  			</ul>
+			  			<% if user_signed_in? %>
+			  				<%= link_to "Add comment", new_post_comment_path(post), class: "btn btn-default" %>
+			  			<% end %>
+			  			<% if post.user == current_user %>
+			  				<%= link_to "Delete post", post_path(post), method: :delete, class: 'btn btn-lg btn-danger' %>
+			  				<%= link_to "❤ #{post.likes.count}", post_likes_path(post), class: 'like-btn' %>
+			  			<% end %>
+		  			</div>
+			  	<% end %>
+		    </div>
+		</div>
+	<% else %>
+  		<Br/><br/>
+  			No posts have been made
+  		<Br/><br/>  
+	<% end %>
+	
+	<h4>0 comments</h4>
+
+	<%= form_for @post, html: { multipart: true } do |f| %>
+		
+		<%= f.label :picture %>
+		<%= f.file_field :picture %>
+
+		<%= f.label :description %> 
+		<%= f.text_area :description %>
+
+		<%= f.label :tag_names, 'Tags' %>
+		<%= f.text_field :tag_names %>
+		
+		<%= f.button "Upload", action: "create", class: "btn btn-success"%>
+
+	<% end %>
+
+</div>
+

@@ -1,0 +1,16 @@
+# Logfile created on 2014-07-22 21:37:58 +0100 by logger.rb/41954
+I [2014-07-22 21:37:58.740] [[32mConnectionManager[0m] Connection opened: #<Connection::592a881a127ba6e70e50>
+I [2014-07-22 21:37:58.755] [[32mChannel[0m] #<Connection::592a881a127ba6e70e50> subscribed to channel likes
+I [2014-07-22 21:37:58.755] [[32mChannel[0m] sending token
+I [2014-07-22 21:48:48.235] [[32mChannel[0m] #<Connection::592a881a127ba6e70e50> unsubscribed from channel likes
+I [2014-07-22 21:48:48.235] [[32mConnectionManager[0m] Connection closed: #<Connection::592a881a127ba6e70e50>
+I [2014-07-22 21:48:48.528] [[32mConnectionManager[0m] Connection opened: #<Connection::e77784c32cb965a22d24>
+I [2014-07-22 21:48:48.586] [[32mChannel[0m] #<Connection::e77784c32cb965a22d24> subscribed to channel likes
+I [2014-07-22 21:48:48.587] [[32mChannel[0m] sending token
+I [2014-07-22 21:49:05.350] [[32mChannel[0m] #<Connection::e77784c32cb965a22d24> unsubscribed from channel likes
+I [2014-07-22 21:49:05.351] [[32mConnectionManager[0m] Connection closed: #<Connection::e77784c32cb965a22d24>
+I [2014-07-22 21:49:05.563] [[32mConnectionManager[0m] Connection opened: #<Connection::45fddc923b78a2e4e152>
+I [2014-07-22 21:49:05.570] [[32mChannel[0m] #<Connection::45fddc923b78a2e4e152> subscribed to channel likes
+I [2014-07-22 21:49:05.571] [[32mChannel[0m] sending token
+I [2014-07-23 13:40:38.158] [[32mChannel[0m] #<Connection::45fddc923b78a2e4e152> unsubscribed from channel likes
+I [2014-07-23 13:40:38.158] [[32mConnectionManager[0m] Connection closed: #<Connection::45fddc923b78a2e4e152>
