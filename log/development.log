@@ -820,3 +820,105 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-23 18:01:30
 
 Started GET "/websocket" for 127.0.0.1 at 2014-07-23 18:01:30 +0100
   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-23 21:09:11 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 45ms (Views: 19.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-23 21:09:12 +0100
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
