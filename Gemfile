@@ -38,9 +38,10 @@ gem 'thin'
 
 gem 'websocket-rails'
 
+gem 'capybara'
+
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'capybara'
 	gem 'database_cleaner'
 end
 

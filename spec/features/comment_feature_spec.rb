@@ -9,7 +9,6 @@ describe 'writing comments' do
 
 	specify 'a post has no comments when first uploaded' do
 		visit '/posts'
-
 		expect(page).to have_content '0 comments'
 	end
 

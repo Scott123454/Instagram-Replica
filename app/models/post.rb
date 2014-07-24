@@ -4,10 +4,10 @@ class Post < ActiveRecord::Base
  		styles: { medium: '300x300>' },
  		storage: :s3,
  		s3_credentials: {
- 			bucket: 'instagram-scott',
+ 			bucket: 'instagram-scott.s3.amazonaws.com',
  			access_key_id: Rails.application.secrets.s3_access_key,
  			secret_access_key: Rails.application.secrets.s3_secret_key
- 			}
+ 		}
  	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
  	has_many :comments	
  	belongs_to :user
