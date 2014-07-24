@@ -16,9 +16,15 @@
 @import 'bootstrap';
 
 
+.jumbotron {
+	background: image-url('photo-collage.jpg');
+	padding: 30px 50px;
+	border-radius: 20px;
+
+}
+
 .jumbotron .container {
 	background: rgba(255, 255, 255, 0.85);
 	padding: 30px 50px;
 	border-radius: 20px;
-
 }

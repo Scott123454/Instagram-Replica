@@ -1,9 +1,18 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, world!</h1>
+    <p>This is an instagram replica </p>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
+
 <div class='container' >
 
 	<% if @all_posts.any? %>
 		<div class='row'>
-		   	<div class='col-md-4'>
-			  	<% @all_posts.each do |post| %>
+			<% @all_posts.each do |post| %>
+		   		<div class='col-md-4'>
 				  	<div class='post' data-id='<%= post.id %>' >
 				  		<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %><br/>
 				  		<%= post.description %><br/>
@@ -25,8 +34,8 @@
 			  				<%= link_to "❤ #{post.likes.count}", post_likes_path(post), class: 'like-btn' %>
 			  			<% end %>
 		  			</div>
-			  	<% end %>
-		    </div>
+			  	</div>
+			<% end %>
 		</div>
 	<% else %>
   		<Br/><br/>
@@ -35,6 +44,10 @@
 	<% end %>
 	
 	<h4>0 comments</h4>
+
+</div>
+
+<div>
 
 	<%= form_for @post, html: { multipart: true } do |f| %>
 		
