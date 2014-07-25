@@ -9,7 +9,7 @@ describe 'liking posts' do
 
 	it 'increments the like count of a post' do
 		visit '/posts'
-		click_link '❤ 0'
+		click_link "❤ 0"
 		expect(page).to have_link '❤ 1'
 	end
 end

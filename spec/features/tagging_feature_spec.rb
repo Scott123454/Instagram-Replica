@@ -13,8 +13,12 @@ describe 'tagging posts' do
 		attach_file('Picture', path)
 		fill_in 'Tags', with: 'lol, spiffing'
 		click_button 'Upload'
-
 		expect(page).to have_link '#lol'
 		expect(page).to have_link '#spiffing'
 	end
+
+	it 'can filter posst by tag' do
+	end
+
+
 end
