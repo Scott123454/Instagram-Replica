@@ -17,17 +17,24 @@ describe 'tagging posts' do
 		expect(page).to have_link '#spiffing'
 	end
 
-	before do
-		Post.create(description: 'tag test1', tag_names: 'yolo')
-		Post.create(description: 'tag test2', tag_names: 'swag')
-	end
+	describe 'filter post by tag' do
+		before do
+			Post.create(description: 'tag test1', tag_names: 'yolo')
+			Post.create(description: 'tag test2', tag_names: 'swag')
+			visit '/posts'
+		end
 
-	it 'can filter post by tag' do
-		visit '/posts'
-		click_link '#yolo'
-		expect(page).to have_css 'h1', text: 'Posts tagged with #yolo'
-		expect(page).to have_content 'tag test1'
-		expect(page).not_to have_content 'tag test2'
+		it 'uses the tag name in the url' do
+			click_link '#yolo'
+			expect(current_path).to eq '/tags/yolo'
+		end
+
+		it 'only shows posts with the selected tag' do
+			click_link '#yolo'
+			expect(page).to have_css 'h1', text: 'Posts tagged with #yolo'
+			expect(page).to have_content 'tag test1'
+			expect(page).not_to have_content 'tag test2'
+		end
 	end
 
 end
