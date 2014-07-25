@@ -1,0 +1,44 @@
+
+<div class='col-md-4'>
+	<div class="panel panel-default">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class='post' data-id='<%= post.id %>' >
+			  		<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+			  		<%= post.description %><br/>
+			  		<p>
+			  		<% post.tags.each do |tag| %>
+			  			<%= link_to tag.name, tag_path(tag) %>
+			  		<%end%>
+			  		</p>
+		  			<ul>
+		  				<% post.comments.each do |comment| %>
+		  					<li> <%= comment.comment %> </li>
+		  				<% end %>
+		  			</ul>
+		  			<% if user_signed_in? %>
+		  				<%= link_to "Add comment", new_post_comment_path(post), class: "btn btn-lg btn-default" %>
+		  			<% end %>
+		  			<% if post.user == current_user %>
+		  				<%= link_to "Delete post", post_path(post), method: :delete, class: 'btn btn-lg btn-danger' %>
+		  				<%= link_to "❤ #{post.likes.count}", post_likes_path(post), class: 'like-btn' %>
+		  				<%= link_to 'Show More', '#', class: 'btn btn-lg btn-info', data: {toggle: 'modal', target: ".image-modal-#{post.id}"} %>
+		  			<% end %>
+	  			</div>	    
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade image-modal-<%= post.id %>">
+    <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	        <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><%= post.description %> </h4>
+		        <div class='modal-body'>
+		        	<%= image_tag post.picture.url%>
+		        </div>
+		    </div>
+	    </div>
+  	</div>
+</div>
