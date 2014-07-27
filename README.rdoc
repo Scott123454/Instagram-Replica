@@ -15,9 +15,9 @@ Capybara
 
 Features
 
--Visitors to the homepage can see small thumbnails of previously uploaded images
+-Visitors to the homepage can see previously uploaded images
 
--User management using Devise
+-User management utilising Devise
 
 -Signed in users can upload new images, including a description and tags
 
