@@ -10998,3 +10998,1633 @@ Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-27 17:09:22 +01
 
 Started GET "/websocket" for 127.0.0.1 at 2014-07-27 17:09:22 +0100
   [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started POST "/posts/3/likes" for 127.0.0.1 at 2014-07-27 21:52:02 +0100
+Processing by LikesController#create as */*
+  Parameters: {"post_id"=>"3"}
+  [1m[35mPost Load (11.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "likes" ("created_at", "post_id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-07-27 20:52:02.961620"], ["post_id", 3], ["updated_at", "2014-07-27 20:52:02.961620"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 57ms (ActiveRecord: 22.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-27 21:52:03 +0100
+Processing by PostsController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.6ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  Rendered posts/_post.html.erb (48.6ms)
+  Rendered posts/index.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 83ms (Views: 74.5ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/posts/3/likes" for 127.0.0.1 at 2014-07-27 21:52:03 +0100
+Processing by LikesController#create as */*
+  Parameters: {"post_id"=>"3"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "likes" ("created_at", "post_id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-07-27 20:52:03.489564"], ["post_id", 3], ["updated_at", "2014-07-27 20:52:03.489564"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-27 21:52:03 +0100
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.7ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  Rendered posts/_post.html.erb (41.1ms)
+  Rendered posts/index.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 65ms (Views: 57.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/posts/3/likes" for 127.0.0.1 at 2014-07-27 21:52:03 +0100
+Processing by LikesController#create as */*
+  Parameters: {"post_id"=>"3"}
+  [1m[35mPost Load (0.9ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "likes" ("created_at", "post_id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-07-27 20:52:03.982616"], ["post_id", 3], ["updated_at", "2014-07-27 20:52:03.982616"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 13ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-27 21:52:03 +0100
+Processing by PostsController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  Rendered posts/_post.html.erb (41.0ms)
+  Rendered posts/index.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 71ms (Views: 63.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+Processing by PostsController#index as HTML
+  [1m[35mUser Load (8.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (62.9ms)
+  Rendered posts/index.html.erb within layouts/application (73.9ms)
+Completed 200 OK in 112ms (Views: 84.9ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:08:11 +0100
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (24.3ms)
+  Rendered posts/index.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:23:38 +0100
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (24.4ms)
+  Rendered posts/index.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 40ms (Views: 33.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:24:47 +0100
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (25.0ms)
+  Rendered posts/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:24:57 +0100
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (26.6ms)
+  Rendered posts/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 42ms (Views: 37.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:29:56 +0100
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:36:03 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (23.1ms)
+  Rendered posts/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 1139ms (Views: 1134.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:36:04 +0100
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:36:13 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (23.0ms)
+  Rendered posts/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 993ms (Views: 988.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:36:14 +0100
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:38:46 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (62.9ms)
+  Rendered posts/index.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 971ms (Views: 966.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:38:47 +0100
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+Processing by PostsController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.6ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  Rendered posts/_post.html.erb (58.0ms)
+  Rendered posts/index.html.erb within layouts/application (67.2ms)
+Completed 200 OK in 112ms (Views: 64.3ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:39:28 +0100
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-07-28 08:39:36 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bW4+cNj4HYisUmlZ3xpx4OiccfabazHezKPh1aEc7AU=", "post"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f8a978ab6b8 @tempfile=#<Tempfile:/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/RackMultipart20140728-45539-1kfz2ti>, @original_filename="jetplane.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[picture]\"; filename=\"jetplane.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "tag_names"=>""}, "button"=>""}
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-183lh1j.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw.jpeg[0]'
+Command :: convert '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw.jpeg[0]' -auto-orient -resize "400x400>" '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw20140728-45539-1u3k3dd'
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw20140728-45539-1u3k3dd'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-bt6ywb.jpeg'
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "posts" ("created_at", "description", "picture_content_type", "picture_file_name", "picture_file_size", "picture_updated_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-07-28 07:39:36.280598"], ["description", ""], ["picture_content_type", "image/jpeg"], ["picture_file_name", "jetplane.jpeg"], ["picture_file_size", 4371], ["picture_updated_at", "2014-07-28 07:39:36.083220"], ["updated_at", "2014-07-28 07:39:36.280598"], ["user_id", 1]]
+[paperclip] saving /posts/pictures/000/000/011/original/jetplane.jpeg
+[AWS S3 200 2.197796 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4371,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: jetplane.jpeg,:key=>"posts/pictures/000/000/011/original/jetplane.jpeg")  
+
+[paperclip] saving /posts/pictures/000/000/011/medium/jetplane.jpeg
+[AWS S3 200 0.159828 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4540,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1kbnniw20140728-45539-1u3k3dd,:key=>"posts/pictures/000/000/011/medium/jetplane.jpeg")  
+
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2761ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+Processing by PostsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 11]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 11]]
+  Rendered posts/_post.html.erb (29.0ms)
+  Rendered posts/index.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 44ms (Views: 38.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:39:38 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:39:39 +0100
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:40:47 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 6]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 11]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 11]]
+  Rendered posts/_post.html.erb (29.5ms)
+  Rendered posts/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 1021ms (Views: 1016.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:40:48 +0100
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started DELETE "/posts/11" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bW4+cNj4HYisUmlZ3xpx4OiccfabazHezKPh1aEc7AU=", "id"=>"11"}
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 1], ["id", 11]]
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = 11
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  Rendered posts/_post.html.erb (24.5ms)
+  Rendered posts/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 38ms (Views: 32.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:40:52 +0100
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-07-28 08:41:02 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bW4+cNj4HYisUmlZ3xpx4OiccfabazHezKPh1aEc7AU=", "post"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f8a933bc250 @tempfile=#<Tempfile:/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/RackMultipart20140728-45539-qqibar>, @original_filename="jetplane.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[picture]\"; filename=\"jetplane.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "tag_names"=>""}, "button"=>""}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1gsf4k7.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t.jpeg[0]'
+Command :: convert '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t.jpeg[0]' -auto-orient -resize "400x400>" '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t20140728-45539-1i82k70'
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t20140728-45539-1i82k70'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-58d9hm.jpeg'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("created_at", "description", "picture_content_type", "picture_file_name", "picture_file_size", "picture_updated_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", "2014-07-28 07:41:02.525391"], ["description", ""], ["picture_content_type", "image/jpeg"], ["picture_file_name", "jetplane.jpeg"], ["picture_file_size", 4371], ["picture_updated_at", "2014-07-28 07:41:02.457965"], ["updated_at", "2014-07-28 07:41:02.525391"], ["user_id", 1]]
+[paperclip] saving /posts/pictures/000/000/012/original/jetplane.jpeg
+[AWS S3 200 1.08926 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4371,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: jetplane.jpeg,:key=>"posts/pictures/000/000/012/original/jetplane.jpeg")  
+
+[paperclip] saving /posts/pictures/000/000/012/medium/jetplane.jpeg
+[AWS S3 200 0.167313 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4540,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-drba6t20140728-45539-1i82k70,:key=>"posts/pictures/000/000/012/medium/jetplane.jpeg")  
+
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 1361ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 12]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered posts/_post.html.erb (31.0ms)
+  Rendered posts/index.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:41:03 +0100
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:43:46 +0100
+Processing by PostsController#index as HTML
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 12]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered posts/_post.html.erb (82.3ms)
+  Rendered posts/index.html.erb within layouts/application (87.4ms)
+Completed 200 OK in 1047ms (Views: 1042.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:43:47 +0100
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-07-28 08:43:54 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bW4+cNj4HYisUmlZ3xpx4OiccfabazHezKPh1aEc7AU=", "post"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x007f8a9771ad30 @tempfile=#<Tempfile:/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/RackMultipart20140728-45539-1xzgjo4>, @original_filename="jetplane.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[picture]\"; filename=\"jetplane.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"", "tag_names"=>""}, "button"=>""}
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-egv36u.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il.jpeg[0]'
+Command :: convert '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il.jpeg[0]' -auto-orient -resize "400x400>" '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il20140728-45539-1j9t66a'
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il20140728-45539-1j9t66a'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/var/folders/9g/p1v3373j1rx8rb7ct8gyhh4m0000gn/T/2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-175zfwg.jpeg'
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("created_at", "description", "picture_content_type", "picture_file_name", "picture_file_size", "picture_updated_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", "2014-07-28 07:43:55.120674"], ["description", ""], ["picture_content_type", "image/jpeg"], ["picture_file_name", "jetplane.jpeg"], ["picture_file_size", 4371], ["picture_updated_at", "2014-07-28 07:43:55.000781"], ["updated_at", "2014-07-28 07:43:55.120674"], ["user_id", 1]]
+[paperclip] saving /posts/pictures/000/000/013/original/jetplane.jpeg
+[AWS S3 200 1.618659 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4371,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: jetplane.jpeg,:key=>"posts/pictures/000/000/013/original/jetplane.jpeg")  
+
+[paperclip] saving /posts/pictures/000/000/013/medium/jetplane.jpeg
+[AWS S3 200 0.170473 0 retries] put_object(:acl=>:public_read,:bucket_name=>"instagram-scott.s3.amazonaws.com",:content_length=>4540,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 2e66f7e0ad65edb0632b6a3ff6af27ff20140728-45539-1k979il20140728-45539-1j9t66a,:key=>"posts/pictures/000/000/013/medium/jetplane.jpeg")  
+
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 1952ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-07-28 08:43:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 12]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 13]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1[0m  [["post_id", 13]]
+  Rendered posts/_post.html.erb (37.5ms)
+  Rendered posts/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 55ms (Views: 47.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-07-28 08:43:57 +0100
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
