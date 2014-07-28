@@ -4,7 +4,7 @@ This project is a Ruby on Rails replica of Instagram utilising:
 
 Devise, AWS, Paperclip for image management, Stripe API, Twitter Bootstrap, jQuery, Websockets, Postgres, Rspec, Capybara
 
-Screen Shot 2014-07-28 at 08.48.25
+![](app/assets/images/InstagramScreenshot.png)
 
 **Features**
 
