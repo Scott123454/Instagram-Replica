@@ -13,16 +13,16 @@ Postgres,
 Rspec,
 Capybara
 
-
 Features
 
--Visitors to the homepage see small thumbnails of previously uploaded images
+-Visitors to the homepage can see previously uploaded images
 
--User management using Devise
+-User management utilising Devise
 
 -Signed in users can upload new images, including a description and tags
 
 -Captions can be added to the pictures
 
 -Users can 'order prints' of images they like through the Stripe API
+
 
