@@ -16,12 +16,12 @@
 	  				<% end %>
 	  			</ul>
 	  			<% if user_signed_in? %>
-	  				<%= link_to "Add comment", new_post_comment_path(post), class: "btn btn-lg btn-default" %>
+	  				<%= link_to "Add comment", new_post_comment_path(post), class: "btn btn-xs btn-default" %>
 	  			<% end %>
 	  			<% if post.user == current_user %>
-	  				<%= link_to "Delete post", post_path(post), method: :delete, class: 'btn btn-lg btn-danger' %>
+	  				<%= link_to "Delete post", post_path(post), method: :delete, class: 'btn btn-xs btn-danger' %>
+	  				<%= link_to 'Show More', '#', class: 'btn btn-xs btn-info', data: {toggle: 'modal', target: ".image-modal-#{post.id}"} %>
 	  				<%= link_to "❤ #{post.likes.count}", post_likes_path(post), class: 'like-btn' %>
-	  				<%= link_to 'Show More', '#', class: 'btn btn-lg btn-info', data: {toggle: 'modal', target: ".image-modal-#{post.id}"} %>
 	  			<% end %>
   			</div>	    
 		</div>

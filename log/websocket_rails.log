@@ -718,3 +718,58 @@ I [2014-07-29 07:56:41.808] [[32mConnectionManager[0m] Connection closed: #<Co
 I [2014-07-29 07:56:41.975] [[32mConnectionManager[0m] Connection opened: #<Connection::0e0b19e88cf27494ca58>
 I [2014-07-29 07:56:41.977] [[32mChannel[0m] #<Connection::0e0b19e88cf27494ca58> subscribed to channel likes
 I [2014-07-29 07:56:41.977] [[32mChannel[0m] sending token
+I [2014-07-29 08:01:29.261] [[32mChannel[0m] #<Connection::0e0b19e88cf27494ca58> unsubscribed from channel likes
+I [2014-07-29 08:01:29.261] [[32mConnectionManager[0m] Connection closed: #<Connection::0e0b19e88cf27494ca58>
+I [2014-07-29 08:01:29.424] [[32mConnectionManager[0m] Connection opened: #<Connection::f2a3e8b17b68c7603b59>
+I [2014-07-29 08:01:29.426] [[32mChannel[0m] #<Connection::f2a3e8b17b68c7603b59> subscribed to channel likes
+I [2014-07-29 08:01:29.426] [[32mChannel[0m] sending token
+I [2014-07-29 08:01:40.840] [[32mChannel[0m] #<Connection::f2a3e8b17b68c7603b59> unsubscribed from channel likes
+I [2014-07-29 08:01:40.841] [[32mConnectionManager[0m] Connection closed: #<Connection::f2a3e8b17b68c7603b59>
+I [2014-07-29 08:01:41.340] [[32mConnectionManager[0m] Connection opened: #<Connection::f65a7e8c4388bb188d8e>
+I [2014-07-29 08:01:41.375] [[32mChannel[0m] #<Connection::f65a7e8c4388bb188d8e> subscribed to channel likes
+I [2014-07-29 08:01:41.376] [[32mChannel[0m] sending token
+I [2014-07-29 08:01:49.618] [[32mChannel[0m] [likes] {"id"=>14, "new_like_count"=>1}
+I [2014-07-29 08:01:50.104] [[32mChannel[0m] [likes] {"id"=>14, "new_like_count"=>2}
+I [2014-07-29 08:01:51.529] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>1}
+I [2014-07-29 08:01:51.815] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>2}
+I [2014-07-29 08:01:51.975] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>3}
+I [2014-07-29 08:01:52.270] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>4}
+I [2014-07-29 08:01:52.705] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>5}
+I [2014-07-29 08:01:52.959] [[32mChannel[0m] [likes] {"id"=>15, "new_like_count"=>6}
+I [2014-07-29 08:01:54.387] [[32mChannel[0m] [likes] {"id"=>16, "new_like_count"=>1}
+I [2014-07-29 08:01:54.570] [[32mChannel[0m] [likes] {"id"=>16, "new_like_count"=>2}
+I [2014-07-29 08:07:47.505] [[32mChannel[0m] #<Connection::f65a7e8c4388bb188d8e> unsubscribed from channel likes
+I [2014-07-29 08:07:47.505] [[32mConnectionManager[0m] Connection closed: #<Connection::f65a7e8c4388bb188d8e>
+I [2014-07-29 08:07:47.655] [[32mConnectionManager[0m] Connection opened: #<Connection::fe55f2d31a0826166b4d>
+I [2014-07-29 08:07:47.659] [[32mChannel[0m] #<Connection::fe55f2d31a0826166b4d> subscribed to channel likes
+I [2014-07-29 08:07:47.660] [[32mChannel[0m] sending token
+I [2014-07-29 08:08:22.718] [[32mChannel[0m] #<Connection::fe55f2d31a0826166b4d> unsubscribed from channel likes
+I [2014-07-29 08:08:22.719] [[32mConnectionManager[0m] Connection closed: #<Connection::fe55f2d31a0826166b4d>
+I [2014-07-29 08:08:22.226] [[32mConnectionManager[0m] Connection opened: #<Connection::4faf50bfa810c1a0f89e>
+I [2014-07-29 08:08:22.229] [[32mChannel[0m] #<Connection::4faf50bfa810c1a0f89e> subscribed to channel likes
+I [2014-07-29 08:08:22.229] [[32mChannel[0m] sending token
+I [2014-07-29 08:09:16.691] [[32mChannel[0m] #<Connection::4faf50bfa810c1a0f89e> unsubscribed from channel likes
+I [2014-07-29 08:09:16.692] [[32mConnectionManager[0m] Connection closed: #<Connection::4faf50bfa810c1a0f89e>
+I [2014-07-29 08:09:16.850] [[32mConnectionManager[0m] Connection opened: #<Connection::3bdc354469d28d7c9068>
+I [2014-07-29 08:09:16.853] [[32mChannel[0m] #<Connection::3bdc354469d28d7c9068> subscribed to channel likes
+I [2014-07-29 08:09:16.853] [[32mChannel[0m] sending token
+I [2014-07-29 08:09:29.226] [[32mChannel[0m] #<Connection::3bdc354469d28d7c9068> unsubscribed from channel likes
+I [2014-07-29 08:09:29.227] [[32mConnectionManager[0m] Connection closed: #<Connection::3bdc354469d28d7c9068>
+I [2014-07-29 08:09:29.374] [[32mConnectionManager[0m] Connection opened: #<Connection::6cf30f87cebc381744d6>
+I [2014-07-29 08:09:29.380] [[32mChannel[0m] #<Connection::6cf30f87cebc381744d6> subscribed to channel likes
+I [2014-07-29 08:09:29.380] [[32mChannel[0m] sending token
+I [2014-07-29 08:09:48.449] [[32mChannel[0m] #<Connection::6cf30f87cebc381744d6> unsubscribed from channel likes
+I [2014-07-29 08:09:48.449] [[32mConnectionManager[0m] Connection closed: #<Connection::6cf30f87cebc381744d6>
+I [2014-07-29 08:09:48.601] [[32mConnectionManager[0m] Connection opened: #<Connection::055b7103b03085bee0ab>
+I [2014-07-29 08:09:48.603] [[32mChannel[0m] #<Connection::055b7103b03085bee0ab> subscribed to channel likes
+I [2014-07-29 08:09:48.603] [[32mChannel[0m] sending token
+I [2014-07-29 08:13:56.159] [[32mChannel[0m] #<Connection::055b7103b03085bee0ab> unsubscribed from channel likes
+I [2014-07-29 08:13:56.159] [[32mConnectionManager[0m] Connection closed: #<Connection::055b7103b03085bee0ab>
+I [2014-07-29 08:13:56.315] [[32mConnectionManager[0m] Connection opened: #<Connection::f272062603d23cead295>
+I [2014-07-29 08:13:56.319] [[32mChannel[0m] #<Connection::f272062603d23cead295> subscribed to channel likes
+I [2014-07-29 08:13:56.319] [[32mChannel[0m] sending token
+I [2014-07-29 08:14:28.616] [[32mChannel[0m] #<Connection::f272062603d23cead295> unsubscribed from channel likes
+I [2014-07-29 08:14:28.616] [[32mConnectionManager[0m] Connection closed: #<Connection::f272062603d23cead295>
+I [2014-07-29 08:14:28.762] [[32mConnectionManager[0m] Connection opened: #<Connection::29ceadf2d6e748c4b659>
+I [2014-07-29 08:14:28.766] [[32mChannel[0m] #<Connection::29ceadf2d6e748c4b659> subscribed to channel likes
+I [2014-07-29 08:14:28.766] [[32mChannel[0m] sending token
