@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   get 'comments/new'
 
   resources :posts do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags
+  resources :orders
 
   devise_for :users
   root 'posts#index'

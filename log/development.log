@@ -16226,3 +16226,113 @@ Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-07-29 08:14:28 +01
 
 Started GET "/websocket" for 127.0.0.1 at 2014-07-29 08:14:28 +0100
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+Processing by PostsController#index as HTML
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (5.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.7ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 14]]
+  [1m[35mComment Load (1.6ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 14]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 15]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 15]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 16]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes"  WHERE "likes"."post_id" = $1  [["post_id", 16]]
+  Rendered posts/_post.html.erb (69.4ms)
+  Rendered posts/index.html.erb within layouts/application (78.2ms)
+Completed 200 OK in 99ms (Views: 85.4ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/assets/bootstrap-tagsinput.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/likes.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/tags.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/bootstrap-tagsinput.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_rails.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/event.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/abstract_connection.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/http_connection.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/websocket_connection.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/channel.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/websocket_rails/main.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/likes.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/tags.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/assets/photo-collage.jpg" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+
+
+Started GET "/websocket" for 127.0.0.1 at 2014-08-03 19:38:47 +0100
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdmins (20140805063106)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (31.4ms)[0m  [1mCREATE TABLE "admins" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140805063106"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "admins"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.9ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'scott@admin.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-08-05 06:39:05.779420"], ["email", "scott@admin.com"], ["encrypted_password", "$2a$10$EefC.jugOcbOcUqduE13pe2DBDKcaU9fiREox1mr6TwRxSfrkZ5om"], ["updated_at", "2014-08-05 06:39:05.779420"]]
+  [1m[35m (0.4ms)[0m  COMMIT
