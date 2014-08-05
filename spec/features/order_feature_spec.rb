@@ -28,6 +28,7 @@ describe 'orders page' do
 
 	context 'with orders' do
 		before do
+			login_as admin scope: :admin
 			christmas_day = Date.new(2013, 12, 25)
 			Order.create(id: 1, post: post, user: user, created_at: christmas_day)
 			visit '/orders'		
