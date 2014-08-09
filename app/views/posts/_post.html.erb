@@ -23,6 +23,7 @@
 	  				<%= link_to "Delete post", post_path(post), method: :delete, class: 'btn btn-xs btn-danger' %>
 	  				<%= link_to 'Show More', '#', class: 'btn btn-xs btn-info', data: {toggle: 'modal', target: ".image-modal-#{post.id}"} %>
 	  				<%= link_to "❤ #{post.likes.count}", post_likes_path(post), class: 'like-btn' %>
+	  				<%= link_to "Buy", new_post_charge_path(post), class: 'btn btn-lg btn-default' %>
 	  			<% end %>
   			</div>	    
 		</div>

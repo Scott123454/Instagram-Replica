@@ -42,6 +42,7 @@ gem 'websocket-rails'
 
 gem 'capybara'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
 	gem 'rspec-rails'
