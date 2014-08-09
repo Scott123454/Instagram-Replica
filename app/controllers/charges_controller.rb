@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def new
 		@post = Post.find params[:post_id]
 	end
@@ -22,6 +24,9 @@ class ChargesController < ApplicationController
 	    )
 
 	    Order.create(user: current_user, post: @post)
+	    flash[:notice] = 'Thanks for your order'
+	    redirect_to '/posts'
+
 
 	rescue Stripe::CardError => e
 	  	flash[:error] = e.message
