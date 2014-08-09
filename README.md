@@ -18,4 +18,4 @@ Devise, AWS, Paperclip for image management, Stripe API, Twitter Bootstrap, jQue
 
 -Captions can be added to the pictures
 
--Users can 'order prints' of images they like through the Stripe API
+-Users can 'order prints' of images through the Stripe API
