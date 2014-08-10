@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'tagging posts' do
 	before do
-		ollie = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
+		ollie = User.create(email: 'ollie@9.com', password: '12345678', password_confirmation: '12345678')
 		login_as ollie
 	end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'writing comments' do 
 	before do 
-		user = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
+		user = User.create(email: 'ollie@1.com', password: '12345678', password_confirmation: '12345678')
 		login_as user
 		Post.create(description: 'Comment test')
 	end

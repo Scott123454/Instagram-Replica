@@ -5,7 +5,7 @@ describe 'Posts home page:' do
 	context 'When logged in:' do 
 
 		before do
-			user = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
+			user = User.create(email: 'ollie@4.com', password: '12345678', password_confirmation: '12345678')
 			login_as user
 		end
 
@@ -32,7 +32,7 @@ describe 'Create a new post:' do
 	context 'When logged in' do
 
 		before do
-			user = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
+			user = User.create(email: 'ollie@5.com', password: '12345678', password_confirmation: '12345678')
 			login_as user
 		end
 
@@ -54,8 +54,8 @@ describe 'deleting posts' do
 	context 'my post' do
 
 		before do
-			ollie = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
-			scott = User.create(email: 'scott@scott.com', password: '12345678', password_confirmation: '12345678')
+			ollie = User.create(email: 'ollie@6.com', password: '12345678', password_confirmation: '12345678')
+			scott = User.create(email: 'scott@2.com', password: '12345678', password_confirmation: '12345678')
 			login_as ollie	
 			Post.create(description: 'Comment test', user: ollie)
 		end
@@ -72,8 +72,8 @@ describe 'deleting posts' do
 	context "someone else's post" do
 
 		before do
-			ollie = User.create(email: 'ollie@ollie.com', password: '12345678', password_confirmation: '12345678')
-			scott = User.create(email: 'scott@scott.com', password: '12345678', password_confirmation: '12345678')
+			ollie = User.create(email: 'ollie@7.com', password: '12345678', password_confirmation: '12345678')
+			scott = User.create(email: 'scott@8.com', password: '12345678', password_confirmation: '12345678')
 			login_as ollie	
 			Post.create(description: 'Comment test', user: scott)
 		end

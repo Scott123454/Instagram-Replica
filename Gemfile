@@ -47,6 +47,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'database_cleaner'
+	gem 'capybara-email'
 end
 
 

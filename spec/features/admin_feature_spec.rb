@@ -1,8 +1,0 @@
-require 'spec_helper'
-
-describe 'admins' do
-
-	it 'cannot sign up' do
-		expectvisit {'admins/sign_up'}.to raise_error
-	end
-end

@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'capybara/email/rspec'
 require 'database_cleaner'
 Capybara.javascript_driver= :poltergeist
 
