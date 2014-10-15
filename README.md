@@ -20,4 +20,4 @@ Devise, AWS, Paperclip for image management, Stripe API, Twitter Bootstrap, jQue
 
 -Users can 'order prints' of images through the Stripe API
 
--Users can 'like' posts by clicking a heart symbol which is updated without a page refresh using websockets
+-Users can 'like' posts by clicking a heart symbol which is updated without a page refresh using Ajax and post requests using Web Sockets
